@@ -18,17 +18,17 @@ class GradeReader
       student.each do |key, value|
         @ind_score << student[i]
         @ind_score.pop if student[i] == nil
-        binding.pry
-        @ind_student = Student.new(student[i], @ind_score)
-        binding.pry
+        grades = @ind_score.map(&:to_i)
+        @ind_student = Student.new(student[0], grades)
         i += 1
       end
-        @students << @ind_student
+
+      @students << @ind_student
     end
     @students.each do |each_student|
-      each_student.grade
-      each_student.find_avg
-      each_student.get_letter_grade
+      # each_student.grade
+      # each_student.find_avg
+      # each_student.get_letter_grade
     end
   end
 end

@@ -1,24 +1,18 @@
 require 'pry'
 
 class Student
-  def initialize(name,grades=[])
+  def initialize(name, grades=[])
     @name = name
     @grades = grades
   end
 
-  def grade
-    @grades = @grades.map do |grade|
-      grade.to_i
-    end
-  end
-
-  def find_avg
-    @avg = (@grades.inject(:+))/@grades.size
-    @avg
+  def find_avg(grades)
+    grades.inject(:+) / grades.size
   end
 
   def get_letter_grade
-   final_grade  = FinalGrade.new(@name, @avg)
-   final_grade.letter_grade
+    avg = find_avg(@grades)
+    final_grade  = FinalGrade.new(@name, avg)
+    final_grade.letter_grade
   end
 end

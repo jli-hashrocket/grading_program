@@ -7,7 +7,7 @@ class FinalGrade
   end
 
   def letter_grade
-    print "#{@name}'s final grade is:"
+    print "#{@name}'s final grade is: "
     puts "A" if @average >= 90
     puts "B" if @average >= 80 && @average < 90
     puts "C" if @average >= 70 && @average < 80
