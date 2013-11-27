@@ -18,10 +18,17 @@ class GradeReader
       student.each do |key, value|
         @ind_score << student[i]
         @ind_score.pop if student[i] == nil
-        @ind_student = Student.new(student[0], @ind_score)
+        binding.pry
+        @ind_student = Student.new(student[i], @ind_score)
+        binding.pry
         i += 1
       end
+        @students << @ind_student
     end
-    @ind_student.grade
+    @students.each do |each_student|
+      each_student.grade
+      each_student.find_avg
+      each_student.get_letter_grade
+    end
   end
 end

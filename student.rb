@@ -7,10 +7,18 @@ class Student
   end
 
   def grade
-    grades = @grades.map do |grade|
+    @grades = @grades.map do |grade|
       grade.to_i
     end
+  end
 
-    avg = (grades.inject(:+))/grades.size
+  def find_avg
+    @avg = (@grades.inject(:+))/@grades.size
+    @avg
+  end
+
+  def get_letter_grade
+   final_grade  = FinalGrade.new(@name, @avg)
+   final_grade.letter_grade
   end
 end
