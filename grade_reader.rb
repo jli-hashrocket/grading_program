@@ -2,8 +2,9 @@ require 'pry'
 
 class GradeReader
   attr_accessor :students
-  def initialize(file,students=[],lines=[])
+  def initialize(file,report_file,students=[],lines=[])
     @file = file
+    @report_file = report_file
     @students = students
     @lines = lines
   end
@@ -33,9 +34,11 @@ class GradeReader
     end
   end
 
-  def summary
-    @students.each do |student|
-      binding.pry
+  def send_to_file
+    CSV.open(@report_file,'a+') do |log|
+      @students.each do |student|
+        log << student.values
+      end
     end
   end
 end
