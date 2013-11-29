@@ -1,7 +1,7 @@
 require 'pry'
 
 class Student
-  def initialize(name,grades=[])
+  def initialize(name = '',grades=[])
     @name = name
     @grades = grades
   end
@@ -14,7 +14,7 @@ class Student
 
   def find_avg
     @avg = (@grades.inject(:+))/@grades.size
-    @avg
+    puts "\n#{@name} average is #{@avg}"
   end
 
   def get_letter_grade
