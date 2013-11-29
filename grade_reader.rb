@@ -35,9 +35,10 @@ class GradeReader
   end
 
   def send_to_file
-    CSV.open(@report_file,'a+') do |log|
+    @students = @students.sort_by {|obj| obj.name}
+      CSV.open(@report_file,'a+') do |log|
       @students.each do |student|
-        log << student.values
+        log << [student.name, student.find_avg, student.get_letter_grade]
       end
     end
   end

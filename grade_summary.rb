@@ -1,4 +1,3 @@
-require 'pry'
 
 class GradeSummary
   def initialize(students, all_grades = [], deviation_arr = [])

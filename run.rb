@@ -8,7 +8,7 @@ require_relative "grade_summary"
 
 file = "students.csv"
 report = "class_resport.csv"
-grade_reader = GradeReader.new(file)
+grade_reader = GradeReader.new(file, report)
 grade_reader.parse
 grade_reader.output_grades
 grade_reader.send_to_file
